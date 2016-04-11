@@ -68,7 +68,7 @@ if ($CallingHome['Active']) {
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
    <title><?php echo $Reflector->GetReflectorName(); ?> Reflector Dashboard</title>
    <link rel="stylesheet" type="text/css" href="./css/layout.css">
-   <link rel="icon" href="./favicon.ico" type="image/vnd.microsoft.icon"><?php
+   <link rel="icon" href="./darc.ico" type="image/vnd.microsoft.icon"><?php
 
    if ($PageOptions['PageRefreshActive']) {
       echo '

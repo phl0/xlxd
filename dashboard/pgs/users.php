@@ -19,9 +19,9 @@
 $Reflector->LoadFlags();
 $odd = "";
 for ($i=0;$i<$Reflector->StationCount();$i++) {
-   if ($odd == "#FFFFFF") { $odd = "#F1FAFA"; } else { $odd = "#FFFFFF"; }
+   if ($odd == "#FFFFFF") { $odd = "#FDF4E7"; } else { $odd = "#FFFFFF"; }
    echo '
-  <tr height="30" bgcolor="'.$odd.'" onMouseOver="this.bgColor=\'#FFFFCA\';" onMouseOut="this.bgColor=\''.$odd.'\';">
+  <tr height="30" bgcolor="'.$odd.'" onMouseOver="this.bgColor=\'#F1A149\';" onMouseOut="this.bgColor=\''.$odd.'\';">
    <td align="center" width="35">';
    echo ($i==0 ? '<img src="./img/radio-waves-hi.png" />' : $i+1);
    
@@ -112,7 +112,7 @@ for ($i=0;$i<count($Modules);$i++) {
          $Displayname = $Users[$j].'-'.$Reflector->GetSuffixOfRepeater($Users[$j], $Modules[$i]);
       }
       echo '
-            <tr height="25" bgcolor="'.$odd.'" onMouseOver="this.bgColor=\'#FFFFCA\';" onMouseOut="this.bgColor=\''.$odd.'\';">
+            <tr height="25" bgcolor="'.$odd.'" onMouseOver="this.bgColor=\'#F1A149\';" onMouseOut="this.bgColor=\''.$odd.'\';">
                <td valign="top" style="border-bottom:1px #C1DAD7 solid;"><a href="http://www.aprs.fi/'.$Displayname.'" class="pl" target="_blank">'.$Displayname.'</a> </td>
             </tr>';
       $UserCheckedArray[] = $Users[$j];

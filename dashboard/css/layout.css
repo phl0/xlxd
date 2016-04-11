@@ -14,7 +14,7 @@ h1 {
    height               : 115px;
    background-color     : #FFFFFF;
    width                : 100%;
-   background-image     : url('../img/dvc.jpg');
+   background-image     : url('../img/darc_logo.png');
    background-repeat    : no-repeat;
    background-position  : 98.5%;
    position             : absolute;
@@ -32,7 +32,8 @@ h1 {
 #menubar {
    height               : 40px;
    width                : 100%;
-   background-color     : #FEC456;
+   background-color     : #FFFFFF;
+   border-bottom        : 4px solid #E11152;
    position             : absolute;   
    left                 : 0px;
    top                  : 115px;
@@ -55,8 +56,8 @@ h1 {
    padding-bottom       : 3px;
    padding-right        : 10px;
    margin-left          : 10px;
-   background-color     : #FFFFC6;
-   color                : #000000;
+   background-color     : #3399CC;
+   color                : #FFFFFF;
 } 
 
 .pl {
@@ -72,20 +73,21 @@ h1 {
 }
   
 .listingtable th {
+   color                : #FFFFFF;
    height               : 35px;
    text-align           : center;
    background-image: -webkit-gradient(
 	linear,
 	left top,
 	left bottom,
-	color-stop(0, rgb(201, 231, 233)),
-	color-stop(0.8, rgb(220, 237, 244))
+	color-stop(0, rgb(51, 153, 204)),
+	color-stop(0.8, rgb(70, 159, 215))
 );
-background-image: -o-linear-gradient(bottom, rgb(201, 231, 233) 0%, rgb(220, 237, 244) 80%);
-background-image: -moz-linear-gradient(bottom, rgb(201, 231, 233) 0%, rgb(220, 237, 244) 80%);
-background-image: -webkit-linear-gradient(bottom, rgb(201, 231, 233) 0%, rgb(220, 237, 244) 80%);
-background-image: -ms-linear-gradient(bottom, rgb(201, 231, 233) 0%, rgb(220, 237, 244) 80%);
-background-image: linear-gradient(to bottom, rgb(201, 231, 233) 0%, rgb(220, 237, 244) 80%);
+background-image: -o-linear-gradient(bottom, rgb(51, 153, 204) 0%, rgb(70, 159, 215) 80%);
+background-image: -moz-linear-gradient(bottom, rgb(51, 153, 204) 0%, rgb(70, 159, 215) 80%);
+background-image: -webkit-linear-gradient(bottom, rgb(51, 153, 204) 0%, rgb(70, 159, 215) 80%);
+background-image: -ms-linear-gradient(bottom, rgb(51, 153, 204) 0%, rgb(70, 159, 215) 80%);
+background-image: linear-gradient(to bottom, rgb(51, 153, 204) 0%, rgb(70, 159, 215) 80%);
 }
 
 .listingtable td {

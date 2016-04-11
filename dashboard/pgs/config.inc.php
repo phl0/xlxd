@@ -14,7 +14,7 @@ $Service     = array();
 $CallingHome = array();
 $PageOptions = array();
 
-$PageOptions['ContactEmail']                         = 'dvc@rlx.lu';		        // Support E-Mail address
+$PageOptions['ContactEmail']                         = 'df2et@n18.de';		        // Support E-Mail address
 
 $PageOptions['DashboardVersion']                     = '2.2.3';       			// Dashboard Version
 
@@ -42,8 +42,8 @@ $PageOptions['ModuleNames']['D']                     = '';
 
 
 $PageOptions['MetaDescription']                      = 'XLX is a D-Star Reflector System for Ham Radio Operators.';  // Meta Tag Values, usefull for Search Engine
-$PageOptions['MetaKeywords']                         = 'Ham Radio, D-Star, XReflector, XLX, XRF, DCS, REF, ';        // Meta Tag Values, usefull forSearch Engine
-$PageOptions['MetaAuthor']                           = 'LX1IQ';                                                      // Meta Tag Values, usefull for Search Engine
+$PageOptions['MetaKeywords']                         = 'Ham Radio, D-Star, XReflector, XLX, XRF, DCS, REF, Open D-Star, XRF518, XLX518, N18';        // Meta Tag Values, usefull forSearch Engine
+$PageOptions['MetaAuthor']                           = 'DF2ET';                                                      // Meta Tag Values, usefull for Search Engine
 $PageOptions['MetaRevisit']                          = 'After 30 Days';                                              // Meta Tag Values, usefull for Search Engine
 $PageOptions['MetaRobots']                           = 'index,follow';                                               // Meta Tag Values, usefull for Search Engine
 
@@ -52,12 +52,12 @@ $PageOptions['MetaRobots']                           = 'index,follow';          
 $Service['PIDFile']                                  = '/var/log/xlxd.pid';
 $Service['XMLFile']                                  = '/var/log/xlxd.xml';
 
-$CallingHome['Active']                               = false;								// xlx phone home, true or false
-$CallingHome['MyDashBoardURL']                       = 'http://your_dashboard';				// dashboard url
+$CallingHome['Active']                               = true;								// xlx phone home, true or false
+$CallingHome['MyDashBoardURL']                       = 'http://xlx518.n18.de';				// dashboard url
 $CallingHome['ServerURL']                            = 'http://xlxapi.rlx.lu/api.php';		// database server, do not change !!!!
 $CallingHome['PushDelay']                            = 600;									// push delay in seconds
-$CallingHome['Country']                              = "your_country";						// Country
-$CallingHome['Comment']                              = "your_comment";						// Comment. Max 100 character
+$CallingHome['Country']                              = "Germany";						// Country
+$CallingHome['Comment']                              = "N18 Open D-Star Reflector";						// Comment. Max 100 character
 $CallingHome['HashFile']                             = "/tmp/callinghome.php";				// Make sure the apache user has read and write permissions in this folder.
 $CallingHome['OverrideIPAddress']                    = "";									// Leave blank for autodetection.
 

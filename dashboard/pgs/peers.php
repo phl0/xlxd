@@ -21,10 +21,10 @@ $Reflector->LoadFlags();
 
 for ($i=0;$i<$Reflector->PeerCount();$i++) {
          
-   if ($odd == "#FFFFFF") { $odd = "#F1FAFA"; } else { $odd = "#FFFFFF"; }
+   if ($odd == "#FFFFFF") { $odd = "#FDF4E7"; } else { $odd = "#FFFFFF"; }
  
    echo '
-  <tr height="30" bgcolor="'.$odd.'" onMouseOver="this.bgColor=\'#FFFFCA\';" onMouseOut="this.bgColor=\''.$odd.'\';">
+  <tr height="30" bgcolor="'.$odd.'" onMouseOver="this.bgColor=\'#F1A149\';" onMouseOut="this.bgColor=\''.$odd.'\';">
    <td align="center">'.($i+1).'</td>
    <td>'.$Reflector->Peers[$i]->GetCallSign().'</td>
    <td>'.date("d.m.Y H:i", $Reflector->Peers[$i]->GetLastHeardTime()).'</td>
