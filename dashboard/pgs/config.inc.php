@@ -52,7 +52,6 @@ $PageOptions['MetaRobots']                           = 'index,follow';          
 $Service['PIDFile']                                  = '/var/log/xlxd.pid';
 $Service['XMLFile']                                  = '/var/log/xlxd.xml';
 
-<<<<<<< HEAD
 $CallingHome['Active']                               = true;								// xlx phone home, true or false
 $CallingHome['MyDashBoardURL']                       = 'http://xlx518.n18.de';				// dashboard url
 $CallingHome['ServerURL']                            = 'http://xlxapi.rlx.lu/api.php';		// database server, do not change !!!!
@@ -61,16 +60,6 @@ $CallingHome['Country']                              = "Germany";						// Countr
 $CallingHome['Comment']                              = "N18 Open D-Star Reflector";						// Comment. Max 100 character
 $CallingHome['HashFile']                             = "/tmp/callinghome.php";				// Make sure the apache user has read and write permissions in this folder.
 $CallingHome['OverrideIPAddress']                    = "";									// Leave blank for autodetection.
-=======
-$CallingHome['Active']                               = false;					               // xlx phone home, true or false
-$CallingHome['MyDashBoardURL']                       = 'http://your_dashboard';			       // dashboard url
-$CallingHome['ServerURL']                            = 'http://xlxapi.rlx.lu/api.php';         // database server, do not change !!!!
-$CallingHome['PushDelay']                            = 600;  	                               // push delay in seconds
-$CallingHome['Country']                              = "your_country";                         // Country
-$CallingHome['Comment']                              = "your_comment"; 				           // Comment. Max 100 character
-$CallingHome['HashFile']                             = "/tmp/callinghome.php";                 // Make sure the apache user has read and write permissions in this folder.
-$CallingHome['OverrideIPAddress']                    = "";                                     // Insert your IP address here. Leave blank for autodetection. No need to enter a fake address.
 $CallingHome['InterlinkFile']                        = "/xlxd/xlxd.interlink";                 // Path to interlink file
->>>>>>> upstream/master
 
 ?>
