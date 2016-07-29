@@ -24,7 +24,7 @@ $PageOptions['PageRefreshDelay']                     = '10000';       			// Page
 
 $PageOptions['RepeatersPage'] = array();
 $PageOptions['RepeatersPage']['LimitTo']             = 99;            			// Number of Repeaters to show
-$PageOptions['RepeatersPage']['IPModus']             = 'ShowFullIP'; 		 	// See possible options above
+$PageOptions['RepeatersPage']['IPModus']             = 'ShowLast1ByteOfIP'; 		 	// See possible options above
 $PageOptions['RepeatersPage']['MasqueradeCharacter'] = '*';	        			// Character used for  masquerade
 
 
@@ -35,10 +35,10 @@ $PageOptions['PeerPage']['MasqueradeCharacter']      = '*';           			// Char
 
 
 $PageOptions['ModuleNames'] = array();                                			// Module nomination
-$PageOptions['ModuleNames']['A']                     = 'Int.';
+$PageOptions['ModuleNames']['A']                     = 'International.';
 $PageOptions['ModuleNames']['B']                     = 'Regional';
 $PageOptions['ModuleNames']['C']                     = 'National';
-$PageOptions['ModuleNames']['D']                     = '';
+$PageOptions['ModuleNames']['D']                     = 'Brandmeister';
 
 
 $PageOptions['MetaDescription']                      = 'XLX is a D-Star Reflector System for Ham Radio Operators.';  // Meta Tag Values, usefull for Search Engine
