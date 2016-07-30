@@ -1,5 +1,22 @@
+<?php
+
+$Result = @fopen($CallingHome['ServerURL']."?do=GetReflectorList", "r");
+
+if (!$Result) die("HEUTE GIBTS KEIN BROT");
+
+$INPUT = "";
+while (!feof ($Result)) {
+       $INPUT .= fgets ($Result, 1024);
+}
+fclose($Result);
+
+$XML = new ParseXML();
+$Reflectorlist = $XML->GetElement($INPUT, "reflectorlist");
+$Reflectors    = $XML->GetAllElements($Reflectorlist, "reflector");
+
+?>
 <table class="listingtable">
- <tr>   
+ <tr>
    <th width="25">#</th>
    <th width="100">XLX Peer</th>
    <th width="154">Last Heard</th>
@@ -21,12 +38,26 @@ $Reflector->LoadFlags();
 
 for ($i=0;$i<$Reflector->PeerCount();$i++) {
          
-   if ($odd == "#FFFFFF") { $odd = "#FDF4E7"; } else { $odd = "#FFFFFF"; }
- 
+   if ($odd == "#FFFFFF") { $odd = "#F1FAFA"; } else { $odd = "#FFFFFF"; }
+
    echo '
-  <tr height="30" bgcolor="'.$odd.'" onMouseOver="this.bgColor=\'#F1A149\';" onMouseOut="this.bgColor=\''.$odd.'\';">
-   <td align="center">'.($i+1).'</td>
-   <td>'.$Reflector->Peers[$i]->GetCallSign().'</td>
+   <tr height="30" bgcolor="'.$odd.'" onMouseOver="this.bgColor=\'#FFFFCA\';" onMouseOut="this.bgColor=\''.$odd.'\';">
+   <td align="center">'.($i+1).'</td>';
+   $Name = $Reflector->Peers[$i]->GetCallSign();
+   $URL = '';
+   for ($j=1;$j<count($Reflectors);$j++) {
+      if ($Name === $XML->GetElement($Reflectors[$j], "name")) {
+         $URL  = $XML->GetElement($Reflectors[$j], "dashboardurl");
+      }
+   }
+   if ($URL) {
+      echo '
+   <td><a href="'.$URL.'" target="_blank" class="listinglink" title="Visit the Dashboard of&nbsp;'.$Name.'">'.$Name.'</a></td>';
+   } else {
+      echo '
+   <td>'.$Name.'</td>';
+   }
+   echo '
    <td>'.date("d.m.Y H:i", $Reflector->Peers[$i]->GetLastHeardTime()).'</td>
    <td>'.FormatSeconds(time()-$Reflector->Peers[$i]->GetConnectTime()).' s</td>
    <td align="center">'.$Reflector->Peers[$i]->GetProtocol().'</td>
@@ -40,7 +71,7 @@ for ($i=0;$i<$Reflector->PeerCount();$i++) {
             case 'ShowLast1ByteOfIP'      : echo $PageOptions['PeerPage']['MasqueradeCharacter'].'.'.$PageOptions['PeerPage']['MasqueradeCharacter'].'.'.$PageOptions['PeerPage']['MasqueradeCharacter'].'.'.$Bytes[3]; break;
             case 'ShowLast2ByteOfIP'      : echo $PageOptions['PeerPage']['MasqueradeCharacter'].'.'.$PageOptions['PeerPage']['MasqueradeCharacter'].'.'.$Bytes[2].'.'.$Bytes[3]; break;
             case 'ShowLast3ByteOfIP'      : echo $PageOptions['PeerPage']['MasqueradeCharacter'].'.'.$Bytes[1].'.'.$Bytes[2].'.'.$Bytes[3]; break;
-            default                       : echo '<a href="http://'.$Reflector->Peers[$i]->GetIP().'" target="_blank" style="text-decoration:none;color:#000000;">'.$Reflector->Peers[$i]->GetIP().'</a>';
+            default                       : echo $Reflector->Peers[$i]->GetIP();
          }
       }
       echo '</td>';
@@ -50,6 +81,6 @@ for ($i=0;$i<$Reflector->PeerCount();$i++) {
    if ($i == $PageOptions['PeerPage']['LimitTo']) { $i = $Reflector->PeerCount()+1; }
 }
 
-?> 
- 
+?>
+
 </table>
