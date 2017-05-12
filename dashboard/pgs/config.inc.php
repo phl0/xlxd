@@ -16,7 +16,7 @@ $PageOptions = array();
 
 $PageOptions['ContactEmail']                         = 'df2et@n18.de';		        // Support E-Mail address
 
-$PageOptions['DashboardVersion']                     = '2.3.5 mod DF2ET';       			// Dashboard Version
+$PageOptions['DashboardVersion']                     = '2.3.6 mod DF2ET';       			// Dashboard Version
 
 $PageOptions['PageRefreshActive']                    = true;          			// Activate automatic refresh
 $PageOptions['PageRefreshDelay']                     = '10000';       			// Page refresh time in miliseconds
