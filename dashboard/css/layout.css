@@ -105,7 +105,8 @@ a.tip:hover span {
 
 .pl {
    font-size            : 12pt;
-   text-decoration      : none;
+   text-decoration      : underline;
+   text-decoration-style: dotted;
    color                : #000000;
 }
   
