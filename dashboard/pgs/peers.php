@@ -47,7 +47,7 @@ for ($i=0;$i<$Reflector->PeerCount();$i++) {
    <tr height="30" bgcolor="'.$odd.'" onMouseOver="this.bgColor=\'#FFFFCA\';" onMouseOut="this.bgColor=\''.$odd.'\';">
    <td align="center">'.($i+1).'</td>';
    $Flag = '';
-   $Flag = $Reflector->Peers[$i]->GetFlag();
+   $Flag = strtolower($Reflector->Peers[$i]->GetFlag());
    echo '
    <td>';
    if (file_exists("./img/flags/".$Flag.".png")) {
