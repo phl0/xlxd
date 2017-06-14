@@ -49,7 +49,7 @@ for ($i=0;$i<$Reflector->PeerCount();$i++) {
    $Flag = '';
    $Flag = strtolower($Reflector->Peers[$i]->GetFlag());
    echo '
-   <td>';
+   <td align="center">';
    if (file_exists("./img/flags/".$Flag.".png")) {
       echo '<img src="./img/flags/'.$Flag.'.png" height="15" />';
    }
