@@ -73,7 +73,7 @@ class xReflector {
          $AllPeersString    = $XML->GetElement($this->XMLContent, $LinkedPeersName);
          $tmpPeers          = $XML->GetAllElements($AllPeersString, "PEER");
          for ($i=0;$i<count($tmpPeers);$i++) {
-             $Peer = new Peer($XML->GetElement($tmpPeers[$i], 'Callsign'), $XML->GetElement($tmpPeers[$i], 'IP'), $XML->GetElement($tmpPeers[$i], 'LinkedModule'), $XML->GetElement($tmpPeers[$i], 'Protocol'), $XML->GetElement($tmpPeers[$i], 'ConnectTime'), $XML->GetElement($tmpPeers[$i], 'LastHeardTime'));
+             $Peer = new Peer($XML->GetElement($tmpPeers[$i], 'Callsign'), $XML->GetElement($tmpNodes[$i], 'Flag'), $XML->GetElement($tmpPeers[$i], 'IP'), $XML->GetElement($tmpPeers[$i], 'LinkedModule'), $XML->GetElement($tmpPeers[$i], 'Protocol'), $XML->GetElement($tmpPeers[$i], 'ConnectTime'), $XML->GetElement($tmpPeers[$i], 'LastHeardTime'));
              $this->AddPeer($Peer, false);
          }
          
