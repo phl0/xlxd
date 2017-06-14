@@ -54,7 +54,7 @@ for ($i=0;$i<$Reflector->PeerCount();$i++) {
       echo '<img src="./img/flags/'.$Flag.'.png" height="15" />';
    }
    echo '
-   </tr>';
+   </td>';
    $Name = $Reflector->Peers[$i]->GetCallSign();
    $URL = '';
    for ($j=1;$j<count($Reflectors);$j++) {
