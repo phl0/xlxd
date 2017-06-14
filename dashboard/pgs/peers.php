@@ -20,6 +20,7 @@ fclose($Result);
 <table class="listingtable">
  <tr>
    <th width="25">#</th>
+   <th width="60">Flag</th>
    <th width="100">XLX Peer</th>
    <th width="154">Last Heard</th>
    <th width="156">Linked for</th>
@@ -45,6 +46,15 @@ for ($i=0;$i<$Reflector->PeerCount();$i++) {
    echo '
    <tr height="30" bgcolor="'.$odd.'" onMouseOver="this.bgColor=\'#FFFFCA\';" onMouseOut="this.bgColor=\''.$odd.'\';">
    <td align="center">'.($i+1).'</td>';
+   $Flag = '';
+   $Flag = $Reflector->Peers[$i]->GetFlag();
+   echo '
+   <td>';
+   if (file_exists("./img/flags/".$Flag.".png")) {
+      echo '<img src="./img/flags/'.$Flag.'.png" height="15" />';
+   }
+   echo '
+   </tr>';
    $Name = $Reflector->Peers[$i]->GetCallSign();
    $URL = '';
    for ($j=1;$j<count($Reflectors);$j++) {

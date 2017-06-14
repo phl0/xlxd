@@ -58,6 +58,7 @@ $CallingHome['MyDashBoardURL']                       = 'http://your_dashboard';	
 $CallingHome['ServerURL']                            = 'http://xlxapi.rlx.lu/api.php';         // database server, do not change !!!!
 $CallingHome['PushDelay']                            = 600;  	                               // push delay in seconds
 $CallingHome['Country']                              = "your_country";                         // Country
+$CallingHome['Flag']                                 = "your_ISO3166_code";                         // two digit ISO 3166 country code
 $CallingHome['Comment']                              = "your_comment"; 				           // Comment. Max 100 character
 $CallingHome['HashFile']                             = "/tmp/callinghome.php";                 // Make sure the apache user has read and write permissions in this folder.
 $CallingHome['OverrideIPAddress']                    = "";                                     // Insert your IP address here. Leave blank for autodetection. No need to enter a fake address.
