@@ -1,12 +1,13 @@
 //
-//  cdextraclient.h
-//  xlxd
+//  cusb3003df2etinterface.h
+//  ambed
 //
-//  Created by Jean-Luc Deltombe (LX3JL) on 31/10/2015.
-//  Copyright © 2015 Jean-Luc Deltombe (LX3JL). All rights reserved.
+//  Created by Jean-Luc Deltombe (LX3JL) and Florian Wolters (DF2ET) on 03/11/2017.
+//  Copyright © 2017 Jean-Luc Deltombe (LX3JL) and Florian Wolters (DF2ET).
+//  All rights reserved.
 //
 // ----------------------------------------------------------------------------
-//    This file is part of xlxd.
+//    This file is part of ambed.
 //
 //    xlxd is free software: you can redistribute it and/or modify
 //    it under the terms of the GNU General Public License as published by
@@ -19,13 +20,16 @@
 //    GNU General Public License for more details.
 //
 //    You should have received a copy of the GNU General Public License
-//    along with Foobar.  If not, see <http://www.gnu.org/licenses/>. 
+//    along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 // ----------------------------------------------------------------------------
 
-#ifndef cdextraclient_h
-#define cdextraclient_h
+#ifndef cusb3003df2etinterface_h
+#define cusb3003df2etinterface_h
 
-#include "cclient.h"
+
+#include "ftd2xx.h"
+#include "cbuffer.h"
+#include "cusb3003interface.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // define
@@ -34,31 +38,20 @@
 ////////////////////////////////////////////////////////////////////////////////////////
 // class
 
-class CDextraClient : public CClient
+class CUsb3003DF2ETInterface : public CUsb3003Interface
 {
 public:
     // constructors
-    CDextraClient();
-    CDextraClient(const CCallsign &, const CIp &, char = ' ', int = 0);
-    CDextraClient(const CDextraClient &);
+    CUsb3003DF2ETInterface(uint32, uint32, const char *, const char *);
     
     // destructor
-    virtual ~CDextraClient() {};
+    virtual ~CUsb3003DF2ETInterface() {}
     
-    // identity
-    int GetProtocol(void) const                 { return PROTOCOL_DEXTRA; }
-    int GetProtocolRevision(void) const         { return m_ProtRev; }
-    const char *GetProtocolName(void) const     { return "DExtra"; }
-    int GetCodec(void) const                    { return CODEC_AMBEPLUS; }
-    bool IsNode(void) const                     { return true; }
-    
-    // status
-    bool IsAlive(void) const;
-
 protected:
-    // data
-    int     m_ProtRev;
+    // low level
+    bool OpenDevice(void);
+    bool ResetDevice(void);
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////
-#endif /* cdextraclient_h */
+#endif /* cusb3003df2etinterface_h */
