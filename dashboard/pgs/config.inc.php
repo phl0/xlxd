@@ -38,8 +38,10 @@ $PageOptions['LastHeardPage']['LimitTo']             = 39;                      
 $PageOptions['ModuleNames'] = array();                                			// Module nomination
 $PageOptions['ModuleNames']['A']                     = 'International.';
 $PageOptions['ModuleNames']['B']                     = 'Regional';
-$PageOptions['ModuleNames']['C']                     = 'National';
-$PageOptions['ModuleNames']['D']                     = 'Brandmeister';
+$PageOptions['ModuleNames']['C']                     = 'Ruhrpott';
+$PageOptions['ModuleNames']['D']                     = 'Brandmeister Test';
+$PageOptions['ModuleNames']['E']                     = 'Echo Test';
+$PageOptions['ModuleNames']['F']                     = 'DMR D-Star Transcoder Test';
 
 
 $PageOptions['MetaDescription']                      = 'XLX is a D-Star Reflector System for Ham Radio Operators.';  // Meta Tag Values, usefull for Search Engine
