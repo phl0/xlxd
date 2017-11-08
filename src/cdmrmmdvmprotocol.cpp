@@ -130,8 +130,8 @@ void CDmrmmdvmProtocol::Task(void)
             //std::cout << "DMRmmdvm DV last frame"  << std::endl;
             
             OnDvLastFramePacketIn(LastFrame, &Ip);
-       }
-        else if ( IsValidConnectPacket(Buffer, &Callsign) )
+        }
+        else if ( IsValidConnectPacket(Buffer, &Callsign, Ip) )
         {
             std::cout << "DMRmmdvm connect packet from " << Callsign << " at " << Ip << std::endl;
             
@@ -150,7 +150,7 @@ void CDmrmmdvmProtocol::Task(void)
             }
             
         }
-        else if ( IsValidAuthenticationPacket(Buffer, &Callsign) )
+        else if ( IsValidAuthenticationPacket(Buffer, &Callsign, Ip) )
         {
             std::cout << "DMRmmdvm authentication packet from " << Callsign << " at " << Ip << std::endl;
             
@@ -203,7 +203,7 @@ void CDmrmmdvmProtocol::Task(void)
             }
             g_Reflector.ReleaseClients();
         }
-        else if ( IsValidConfigPacket(Buffer, &Callsign) )
+        else if ( IsValidConfigPacket(Buffer, &Callsign, Ip) )
         {
             std::cout << "DMRmmdvm configuration packet from " << Callsign << " at " << Ip << std::endl;
             
@@ -511,13 +511,13 @@ bool CDmrmmdvmProtocol::IsValidKeepAlivePacket(const CBuffer &Buffer, CCallsign 
     {
         uint32 uiRptrId = MAKEDWORD(MAKEWORD(Buffer.data()[10],Buffer.data()[9]),MAKEWORD(Buffer.data()[8],Buffer.data()[7]));
         callsign->SetDmrid(uiRptrId, true);
-        callsign->SetModule('B');
+        callsign->SetModule(MMDVM_MODULE_ID);
         valid = callsign->IsValid();
     }
     return valid;
 }
 
-bool CDmrmmdvmProtocol::IsValidConnectPacket(const CBuffer &Buffer, CCallsign *callsign)
+bool CDmrmmdvmProtocol::IsValidConnectPacket(const CBuffer &Buffer, CCallsign *callsign, const CIp &Ip)
 {
     uint8 tag[] = { 'R','P','T','L' };
     
@@ -526,17 +526,17 @@ bool CDmrmmdvmProtocol::IsValidConnectPacket(const CBuffer &Buffer, CCallsign *c
     {
         uint32 uiRptrId = MAKEDWORD(MAKEWORD(Buffer.data()[7],Buffer.data()[6]),MAKEWORD(Buffer.data()[5],Buffer.data()[4]));
         callsign->SetDmrid(uiRptrId, true);
-        callsign->SetModule('B');
+        callsign->SetModule(MMDVM_MODULE_ID);
         valid = callsign->IsValid();
         if ( !valid)
         {
-            std::cout << "DMRmmdvm connect packet from unrecognized id " << (int)callsign->GetDmrid()  << std::endl;
+            std::cout << "DMRmmdvm connect packet from IP address " << Ip << " / unrecognized id " << (int)callsign->GetDmrid()  << std::endl;
         }
     }
     return valid;
 }
 
-bool CDmrmmdvmProtocol::IsValidAuthenticationPacket(const CBuffer &Buffer, CCallsign *callsign)
+bool CDmrmmdvmProtocol::IsValidAuthenticationPacket(const CBuffer &Buffer, CCallsign *callsign, const CIp &Ip)
 {
     uint8 tag[] = { 'R','P','T','K' };
     
@@ -545,8 +545,13 @@ bool CDmrmmdvmProtocol::IsValidAuthenticationPacket(const CBuffer &Buffer, CCall
     {
         uint32 uiRptrId = MAKEDWORD(MAKEWORD(Buffer.data()[7],Buffer.data()[6]),MAKEWORD(Buffer.data()[5],Buffer.data()[4]));
         callsign->SetDmrid(uiRptrId, true);
-        callsign->SetModule('B');
+        callsign->SetModule(MMDVM_MODULE_ID);
         valid = callsign->IsValid();
+        if ( !valid)
+        {
+            std::cout << "DMRmmdvm authnetication packet from IP address " << Ip << " / unrecognized id " << (int)callsign->GetDmrid()  << std::endl;
+        }
+
     }
     return valid;
 }
@@ -560,13 +565,13 @@ bool CDmrmmdvmProtocol::IsValidDisconnectPacket(const CBuffer &Buffer, CCallsign
     {
         uint32 uiRptrId = MAKEDWORD(MAKEWORD(Buffer.data()[7],Buffer.data()[6]),MAKEWORD(Buffer.data()[5],Buffer.data()[4]));
         callsign->SetDmrid(uiRptrId, true);
-        callsign->SetModule('B');
+        callsign->SetModule(MMDVM_MODULE_ID);
         valid = callsign->IsValid();
     }
     return valid;
 }
 
-bool CDmrmmdvmProtocol::IsValidConfigPacket(const CBuffer &Buffer, CCallsign *callsign)
+bool CDmrmmdvmProtocol::IsValidConfigPacket(const CBuffer &Buffer, CCallsign *callsign, const CIp &Ip)
 {
     uint8 tag[] = { 'R','P','T','C' };
     
@@ -575,8 +580,13 @@ bool CDmrmmdvmProtocol::IsValidConfigPacket(const CBuffer &Buffer, CCallsign *ca
     {
         uint32 uiRptrId = MAKEDWORD(MAKEWORD(Buffer.data()[7],Buffer.data()[6]),MAKEWORD(Buffer.data()[5],Buffer.data()[4]));
         callsign->SetDmrid(uiRptrId, true);
-        callsign->SetModule('B');
+        callsign->SetModule(MMDVM_MODULE_ID);
         valid = callsign->IsValid();
+        if ( !valid)
+        {
+            std::cout << "DMRmmdvm config packet from IP address " << Ip << " / unrecognized id " << (int)callsign->GetDmrid()  << std::endl;
+        }
+
     }
     return valid;
 }
@@ -590,7 +600,7 @@ bool CDmrmmdvmProtocol::IsValidOptionPacket(const CBuffer &Buffer, CCallsign *ca
     {
         uint32 uiRptrId = MAKEDWORD(MAKEWORD(Buffer.data()[7],Buffer.data()[6]),MAKEWORD(Buffer.data()[5],Buffer.data()[4]));
         callsign->SetDmrid(uiRptrId, true);
-        callsign->SetModule('B');
+        callsign->SetModule(MMDVM_MODULE_ID);
         valid = callsign->IsValid();
     }
     return valid;
@@ -671,9 +681,9 @@ bool CDmrmmdvmProtocol::IsValidDvHeaderPacket(const CBuffer &Buffer, CDvHeaderPa
                 }
                 
                 // build DVHeader
-                CCallsign csMY =  CCallsign("", uiSrcId);
+                CCallsign csMY = CCallsign("", uiSrcId);
                 CCallsign rpt1 = CCallsign("", uiRptrId);
-                rpt1.SetModule('B');
+                rpt1.SetModule(MMDVM_MODULE_ID);
                 CCallsign rpt2 = m_ReflectorCallsign;
                 rpt2.SetModule(DmrDstIdToModule(uiDstId));
                 
