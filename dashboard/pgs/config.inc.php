@@ -17,7 +17,7 @@ $VNStat      = array();
 
 $PageOptions['ContactEmail']                         = 'df2et@n18.de';		        // Support E-Mail address
 
-$PageOptions['DashboardVersion']                     = '2.3.8 mod DF2ET';       			// Dashboard Version
+$PageOptions['DashboardVersion']                     = '2.3.9 mod DF2ET';       			// Dashboard Version
 
 $PageOptions['PageRefreshActive']                    = true;   			// Activate automatic refresh
 $PageOptions['PageRefreshDelay']                     = '10000';			// Page refresh time in miliseconds
@@ -62,6 +62,7 @@ $CallingHome['PushDelay']                            = 600;									// push dela
 $CallingHome['Country']                              = "Germany";						// Country
 $CallingHome['Comment']                              = "N18 Open D-Star Reflector";						// Comment. Max 100 character
 $CallingHome['HashFile']                             = "/tmp/callinghome.php";				// Make sure the apache user has read and write permissions in this folder.
+$CallingHome['LastCallHomefile']                     = "/tmp/lastcallhome.php";                // lastcallhome.php can remain in the tmp folder 
 $CallingHome['OverrideIPAddress']                    = "";									// Leave blank for autodetection.
 $CallingHome['InterlinkFile']                        = "/xlxd/xlxd.interlink";                 // Path to interlink file
 
@@ -69,15 +70,5 @@ $VNStat['Interfaces']                                = array();
 $VNStat['Interfaces'][0]['Name']                     = 'eth0';
 $VNStat['Interfaces'][0]['Address']                  = 'eth0';
 $VNStat['Binary']                                    = '/usr/bin/vnstat';
-
-/* 
-   include an extra config file for people who dont like to mess with shipped config.ing.php 
-   this makes updating dashboard from git a little bit easier 
-*/ 
-  
- if (file_exists("../config.inc.php")) { 
-   include ("../config.inc.php");
- } 
-
 
 ?>
