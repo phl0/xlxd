@@ -39,8 +39,9 @@ $PageOptions['ModuleNames']['A']                     = 'International.';
 $PageOptions['ModuleNames']['B']                     = 'Regional';
 $PageOptions['ModuleNames']['C']                     = 'Ruhrpott';
 $PageOptions['ModuleNames']['D']                     = 'Test';
-$PageOptions['ModuleNames']['E']                     = 'Echo Test';
+$PageOptions['ModuleNames']['E']                     = '';
 $PageOptions['ModuleNames']['F']                     = 'DMR D-Star Transcoder Test';
+$PageOptions['ModuleNames']['S']                     = 'Sweden 24005';
 
 $PageOptions['MetaDescription']                      = 'XLX is a D-Star Reflector System for Ham Radio Operators.';	// Meta Tag Values, usefull for Search Engine
 $PageOptions['MetaKeywords']                         = 'Ham Radio, D-Star, XReflector, XLX, XRF, DCS, REF, Open D-Star, XRF518, XLX518, N18';		// Meta Tag Values, usefull forSearch Engine
