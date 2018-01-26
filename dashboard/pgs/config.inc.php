@@ -41,6 +41,7 @@ $PageOptions['ModuleNames']['C']                     = 'Ruhrpott';
 $PageOptions['ModuleNames']['D']                     = 'Test';
 $PageOptions['ModuleNames']['E']                     = '';
 $PageOptions['ModuleNames']['F']                     = 'DMR D-Star Transcoder Test';
+$PageOptions['ModuleNames']['I']                     = 'D-Star, YSF, DMR Multimode Test';
 $PageOptions['ModuleNames']['S']                     = 'Sweden 24005';
 
 $PageOptions['MetaDescription']                      = 'XLX is a D-Star Reflector System for Ham Radio Operators.';	// Meta Tag Values, usefull for Search Engine
