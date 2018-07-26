@@ -17,13 +17,10 @@ $VNStat      = array();
 
 $PageOptions['ContactEmail']                         = 'df2et@n18.de';		        // Support E-Mail address
 
-$PageOptions['DashboardVersion']                     = '2.3.8 mod DF2ET';       			// Dashboard Version
+$PageOptions['DashboardVersion']                     = '2.3.9 mod DF2ET';       			// Dashboard Version
 
-$PageOptions['PageRefreshActive']                    = true;          			// Activate automatic refresh
-$PageOptions['PageRefreshDelay']                     = '10000';       			// Page refresh time in miliseconds
-
-$PageOptions['PageRefreshActive']                    = true;   			// Activate automatic refresh
-$PageOptions['PageRefreshDelay']                     = '10000';			// Page refresh time in miliseconds
+$PageOptions['PageRefreshActive']                    = true;		// Activate automatic refresh
+$PageOptions['PageRefreshDelay']                     = '10000';		// Page refresh time in miliseconds
 
 $PageOptions['RepeatersPage'] = array();
 $PageOptions['RepeatersPage']['LimitTo']             = 99;            			// Number of Repeaters to show
@@ -31,11 +28,11 @@ $PageOptions['RepeatersPage']['IPModus']             = 'ShowLast1ByteOfIP'; 		 	
 $PageOptions['RepeatersPage']['MasqueradeCharacter'] = '*';	        			// Character used for  masquerade
 
 $PageOptions['PeerPage'] = array();
-$PageOptions['PeerPage']['LimitTo']                  = 99;     			// Number of peers to show
-$PageOptions['PeerPage']['IPModus']                  = 'ShowFullIP';		// See possible options above
-$PageOptions['PeerPage']['MasqueradeCharacter']      = '*';         		// Character used for  masquerade
+$PageOptions['PeerPage']['LimitTo']                  = 99;		// Number of peers to show
+$PageOptions['PeerPage']['IPModus']                  = 'ShowFullIP';	// See possible options above
+$PageOptions['PeerPage']['MasqueradeCharacter']      = '*';		// Character used for  masquerade
 
-$PageOptions['LastHeardPage']['LimitTo']             = 39;                      // Number of stations to show
+$PageOptions['LastHeardPage']['LimitTo']             = 39;		// Number of stations to show
 
 $PageOptions['ModuleNames'] = array();                                			// Module nomination
 $PageOptions['ModuleNames']['A']                     = 'International';
@@ -73,14 +70,13 @@ $VNStat['Interfaces'][0]['Name']                     = 'eth0';
 $VNStat['Interfaces'][0]['Address']                  = 'eth0';
 $VNStat['Binary']                                    = '/usr/bin/vnstat';
 
-/* 
-   include an extra config file for people who dont like to mess with shipped config.ing.php 
-   this makes updating dashboard from git a little bit easier 
-*/ 
-  
- if (file_exists("../config.inc.php")) { 
-   include ("../config.inc.php");
- } 
-
+/*   
+include an extra config file for people who dont like to mess with shipped config.ing.php   
+this makes updating dashboard from git a little bit easier   
+*/   
+ 
+if (file_exists("../config.inc.php")) {   
+ include ("../config.inc.php");  
+}   
 
 ?>
