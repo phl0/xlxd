@@ -17,14 +17,14 @@ clean:
 	$(RM) $(EXECUTABLE) *.o
 
 install:
-	mkdir -p /xlxd
-	cp -f $(EXECUTABLE) /xlxd/
-	[ -f /xlxd/xlxd.blacklist ] && \
-		cp ../config/xlxd.blacklist /xlxd/xlxd.blacklist.sample || \
-		cp ../config/xlxd.blacklist /xlxd/xlxd.blacklist
-	[ -f /xlxd/xlxd.whitelist ] && \
-		cp ../config/xlxd.whitelist /xlxd/xlxd.whitelist.sample || \
-		cp ../config/xlxd.whitelist /xlxd/xlxd.whitelist
-	[ -f /xlxd/xlxd.interlink ] && \
-		cp ../config/xlxd.interlink /xlxd/xlxd.interlink.sample || \
-		cp ../config/xlxd.interlink /xlxd/xlxd.interlink
+	mkdir -p /opt/xlxd
+	cp -f $(EXECUTABLE) /opt/xlxd/
+	[ -f /opt/xlxd/xlxd.blacklist ] && \
+		cp ../config/xlxd.blacklist /opt/xlxd/xlxd.blacklist.sample || \
+		cp ../config/xlxd.blacklist /opt/xlxd/xlxd.blacklist
+	[ -f /opt/xlxd/xlxd.whitelist ] && \
+		cp ../config/xlxd.whitelist /opt/xlxd/xlxd.whitelist.sample || \
+		cp ../config/xlxd.whitelist /opt/xlxd/xlxd.whitelist
+	[ -f /opt/xlxd/xlxd.interlink ] && \
+		cp ../config/xlxd.interlink /opt/xlxd/xlxd.interlink.sample || \
+		cp ../config/xlxd.interlink /opt/xlxd/xlxd.interlink
