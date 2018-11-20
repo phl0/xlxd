@@ -141,9 +141,9 @@
 // system paths -------------------------------------------------
 
 #define XML_PATH                        "/var/log/xlxd.xml"
-#define WHITELIST_PATH                  "/xlxd/xlxd.whitelist"
-#define BLACKLIST_PATH                  "/xlxd/xlxd.blacklist"
-#define INTERLINKLIST_PATH              "/xlxd/xlxd.interlink"
+#define WHITELIST_PATH                  "/opt/xlxd/xlxd.whitelist"
+#define BLACKLIST_PATH                  "/opt/xlxd/xlxd.blacklist"
+#define INTERLINKLIST_PATH              "/opt/xlxd/xlxd.interlink"
 #define DEBUGDUMP_PATH                  "/var/log/xlxd.debug"
 
 // system constants ---------------------------------------------
