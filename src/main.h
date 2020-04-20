@@ -154,9 +154,9 @@
 
 // Extended DMR ID checks ---------------------------------------
 
-//#define EXTENDED_DMRID_CHECKS         1                                   // Also allow extended "callsigns" like "IPSC_EU2" 
+#define EXTENDED_DMRID_CHECKS         1                                   // Also allow extended "callsigns" like "IPSC_EU2" 
                                                                             // used for incoming DMR-DL master connections
-#define SPECIALIDDB_PATH                "/xlxd/specialid.dat"               // File to read special (DMR) IDs from
+#define SPECIALIDDB_PATH                "/opt/xlxd/specialid.dat"               // File to read special (DMR) IDs from
 
 // Wires-X node database ----------------------------------------
 
