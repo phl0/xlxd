@@ -120,9 +120,9 @@ for ($i=0;$i<$Reflector->StationCount();$i++) {
       
       
    if ($ShowThisStation) {   
-      if ($odd == "#FFFFFF") { $odd = "#F1FAFA"; } else { $odd = "#FFFFFF"; }
+      if ($odd == "#FFFFFF") { $odd = "#FDF4E7"; } else { $odd = "#FFFFFF"; }
       echo '
-  <tr height="30" bgcolor="'.$odd.'" onMouseOver="this.bgColor=\'#FFFFCA\';" onMouseOut="this.bgColor=\''.$odd.'\';">
+  <tr height="30" bgcolor="'.$odd.'" onMouseOver="this.bgColor=\'#F1A149\';" onMouseOut="this.bgColor=\''.$odd.'\';">
    <td align="center" valign="middle" width="35">';
       if ($i==0 && $Reflector->Stations[$i]->GetLastHeardTime() > (time() - 60)) {
          echo '<img src="./img/tx.gif" style="margin-top:3px;" height="20"/>';
@@ -214,7 +214,7 @@ for ($i=0;$i<count($Modules);$i++) {
       if ($odd == "#FFFFFF") { $odd = "#F1FAFA"; } else { $odd = "#FFFFFF"; }
       $Displayname = $Reflector->GetCallsignAndSuffixByID($Users[$j]);
       echo '
-            <tr height="25" bgcolor="'.$odd.'" onMouseOver="this.bgColor=\'#FFFFCA\';" onMouseOut="this.bgColor=\''.$odd.'\';">
+            <tr height="25" bgcolor="'.$odd.'" onMouseOver="this.bgColor=\'#F1A149\';" onMouseOut="this.bgColor=\''.$odd.'\';">
                <td valign="top" style="border-bottom:1px #C1DAD7 solid;"><a href="http://www.aprs.fi/'.$Displayname.'" class="pl" target="_blank">'.$Displayname.'</a> </td>
             </tr>';
       $UserCheckedArray[] = $Users[$j];

@@ -36,10 +36,10 @@ for ($i=0;$i<count($Reflectors);$i++) {
    $COMMENT       = $XML->GetElement($Reflectors[$i], "comment");
    $DASHBOARDURL  = $XML->GetElement($Reflectors[$i], "dashboardurl");
 
-   if ($odd == "#FFFFFF") { $odd = "#F1FAFA"; } else { $odd = "#FFFFFF"; }
+   if ($odd == "#FFFFFF") { $odd = "#FDF4E7"; } else { $odd = "#FFFFFF"; }
 
    echo '
- <tr height="30" bgcolor="'.$odd.'" onMouseOver="this.bgColor=\'#FFFFCA\';" onMouseOut="this.bgColor=\''.$odd.'\';">
+ <tr height="30" bgcolor="'.$odd.'" onMouseOver="this.bgColor=\'#F1A14F1A149\';" onMouseOut="this.bgColor=\''.$odd.'\';">
    <td align="center">'.($i+1).'</td>
    <td><a href="'.$DASHBOARDURL.'" target="_blank" class="listinglink" title="Visit the Dashboard of&nbsp;'.$NAME.'">'.$NAME.'</a></td>
    <td>'.$COUNTRY.'</td>
