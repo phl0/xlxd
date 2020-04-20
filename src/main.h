@@ -149,7 +149,7 @@
 // DMRid database -----------------------------------------------
 
 #define DMRIDDB_USE_RLX_SERVER          1                                   // 1 = use http, 0 = use local file
-#define DMRIDDB_PATH                    "/xlxd/dmrid.dat"                   // local file path
+#define DMRIDDB_PATH                    "/opt/xlxd/dmrid.dat"                   // local file path
 #define DMRIDDB_REFRESH_RATE            180                                 // in minutes
 
 // Extended DMR ID checks ---------------------------------------
@@ -160,7 +160,7 @@
 // Wires-X node database ----------------------------------------
 
 #define YSFNODEDB_USE_RLX_SERVER        1                                   // 1 = use http, 0 = use local file
-#define YSFNODEDB_PATH                  "/xlxd/ysfnode.dat"                 // local file path
+#define YSFNODEDB_PATH                  "/opt/xlxd/ysfnode.dat"                 // local file path
 #define YSFNODEDB_REFRESH_RATE          180                                 // in minutes
 
 // xml & json reporting -----------------------------------------
