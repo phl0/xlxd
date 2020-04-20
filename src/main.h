@@ -48,23 +48,26 @@
 // version -----------------------------------------------------
 
 #define VERSION_MAJOR                   2
-#define VERSION_MINOR                   2
-#define VERSION_REVISION                2
+#define VERSION_MINOR                   4
+#define VERSION_REVISION                0
 
 // global ------------------------------------------------------
 
 #define RUN_AS_DAEMON
 #define JSON_MONITOR
-//#define NO_ERROR_ON_XML_OPEN_FAIL
+
+// debug -------------------------------------------------------
+
+//#define DEBUG_NO_ERROR_ON_XML_OPEN_FAIL
 //#define DEBUG_DUMPFILE
 
 // reflector ---------------------------------------------------
 
-#define NB_OF_MODULES               26
+#define NB_OF_MODULES                   NB_MODULES_MAX
 
 // protocols ---------------------------------------------------
 
-#define NB_OF_PROTOCOLS                 6
+#define NB_OF_PROTOCOLS                 8
 
 #define PROTOCOL_ANY                    -1
 #define PROTOCOL_NONE                   0
@@ -74,6 +77,8 @@
 #define PROTOCOL_XLX                    4
 #define PROTOCOL_DMRPLUS                5
 #define PROTOCOL_DMRMMDVM               6
+#define PROTOCOL_YSF                    7
+#define PROTOCOL_G3                     8
 
 // DExtra
 #define DEXTRA_PORT                     30001                               // UDP port
@@ -110,6 +115,23 @@
 #define DMRMMDVM_REFLECTOR_SLOT         DMR_SLOT2
 #define DMRMMDVM_REFLECTOR_COLOUR       1
 
+// YSF
+#define YSF_PORT                        42000                               // UDP port
+#define YSF_KEEPALIVE_PERIOD            3                                   // in seconds
+#define YSF_KEEPALIVE_TIMEOUT           (YSF_KEEPALIVE_PERIOD*10)           // in seconds
+#define YSF_DEFAULT_NODE_TX_FREQ        437000000                           // in Hz
+#define YSF_DEFAULT_NODE_RX_FREQ        437000000                           // in Hz
+#define YSF_AUTOLINK_ENABLE             0                                   // 1 = enable, 0 = disable auto-link
+#define YSF_AUTOLINK_MODULE             'B'                                 // module for client to auto-link to
+
+// G3 Terminal
+#define G3_PRESENCE_PORT                12346                               // UDP port
+#define G3_CONFIG_PORT                  12345                               // UDP port
+#define G3_DV_PORT                      40000                               // UDP port
+#define G3_KEEPALIVE_PERIOD             10                                  // in seconds
+#define G3_KEEPALIVE_TIMEOUT            3600                                // in seconds, 1 hour
+
+
 // Transcoder server --------------------------------------------
 
 #define TRANSCODER_PORT                 10100                               // UDP port
@@ -119,9 +141,9 @@
 
 // codec --------------------------------------------------------
 
-#define CODEC_NONE          0
-#define CODEC_AMBEPLUS      1                                               // DStar
-#define CODEC_AMBE2PLUS     2                                               // DMR
+#define CODEC_NONE                      0
+#define CODEC_AMBEPLUS                  1                                   // DStar
+#define CODEC_AMBE2PLUS                 2                                   // DMR
 
 
 // DMRid database -----------------------------------------------
@@ -130,6 +152,11 @@
 #define DMRIDDB_PATH                    "/xlxd/dmrid.dat"                   // local file path
 #define DMRIDDB_REFRESH_RATE            180                                 // in minutes
 
+// Wires-X node database ----------------------------------------
+
+#define YSFNODEDB_USE_RLX_SERVER        1                                   // 1 = use http, 0 = use local file
+#define YSFNODEDB_PATH                  "/xlxd/ysfnode.dat"                 // local file path
+#define YSFNODEDB_REFRESH_RATE          180                                 // in minutes
 
 // xml & json reporting -----------------------------------------
 
@@ -144,6 +171,7 @@
 #define WHITELIST_PATH                  "/opt/xlxd/xlxd.whitelist"
 #define BLACKLIST_PATH                  "/opt/xlxd/xlxd.blacklist"
 #define INTERLINKLIST_PATH              "/opt/xlxd/xlxd.interlink"
+#define TERMINALOPTIONS_PATH            "/opt/xlxd/xlxd.terminal"
 #define DEBUGDUMP_PATH                  "/var/log/xlxd.debug"
 
 // system constants ---------------------------------------------
@@ -186,6 +214,14 @@ extern CGateKeeper g_GateKeeper;
 #else
     class CDmridDirFile;
     extern CDmridDirFile   g_DmridDir;
+#endif
+
+#if (YSFNODEDB_USE_RLX_SERVER == 1)
+    class CYsfNodeDirHttp;
+    extern CYsfNodeDirHttp   g_YsfNodeDir;
+#else
+    class CYsfNodeDirFile;
+    extern CYsfNodeDirFile   g_YsfNodeDir;
 #endif
 
 class CTranscoder;
