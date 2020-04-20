@@ -149,6 +149,13 @@ else {
                    echo '">Traffic statistics</a></td>';
                }
                
+               if ($PageOptions['Statistics']['Show']) {
+                   echo '
+               <td><a href="./index.php?show=statistics" class="menulink';
+                   if ($_GET['show'] == 'statistics') { echo 'active'; }
+                   echo '">Statistics</a></td>';
+               }
+               
                ?>
             </tr>
           </table>
@@ -173,6 +180,7 @@ else {
       case 'peers'      : require_once("./pgs/peers.php"); break;
       case 'reflectors' : require_once("./pgs/reflectors.php"); break;
       case 'traffic'		: require_once("./pgs/traffic.php"); break;
+      case 'statistics' : require_once("./pgs/statistics.php"); break;
       default           : require_once("./pgs/users.php");
    }
 
