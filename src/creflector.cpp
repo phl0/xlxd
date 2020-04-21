@@ -615,7 +615,7 @@ void CReflector::WriteXmlFile(std::ofstream &xmlFile)
     
     // software version
     char sz[64];
-    ::sprintf(sz, "%d.%d.%d", VERSION_MAJOR, VERSION_MINOR, VERSION_REVISION);
+    ::sprintf(sz, "%d.%d.%d_mod_DF2ET", VERSION_MAJOR, VERSION_MINOR, VERSION_REVISION);
     xmlFile << "<Version>" << sz << "</Version>" << std::endl;
     
     // linked peers
