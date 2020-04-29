@@ -164,7 +164,7 @@ for ($i=0;$i<$Reflector->StationCount();$i++) {
                 }
             }
             if ($Result && (trim($URL) != "")) {
-                echo ' / <a href="'.$URL.'" target="_blank" class="listinglink" title="Visit the Dashboard of&nbsp;'.$Peer.'">'.$Peer.'</a>';
+                echo ' / <a href="'.$URL.'" target="_blank" class="pl" title="Visit the Dashboard of&nbsp;'.$Peer.'">'.$Peer.'</a>';
             } else {
                 echo ' / '.$Peer;
             }
